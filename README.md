@@ -1,4 +1,4 @@
-o	Instructions for building and running the front-end containers. 
+Instructions for building and running the front-end containers. 
 
 
 Docker and Docker Compose installed
@@ -6,7 +6,6 @@ Docker and Docker Compose installed
 Internet connection (for installing packages and downloading base images)
 uild the Front-End Docker Image
 Each front-end container is built from a custom Dockerfile that serves the React app using NGINX.
-
 Navigate to your frontend directory:
 Command
 cd  mayalaapi.php
@@ -39,52 +38,36 @@ docker-compose.yml
  nginx.conf and docker-compose.yml
  Certainly! Here's a tailored `README.md` section for your assignment, based on your setup, titled:
 
----
-
-## ☁️ Instructions for Deploying the Environment on AWS EC2
+Instructions for Deploying the Environment on AWS EC2
 
 This section explains how to deploy the load-balanced front-end application, along with the APIand database, on anAWS Free Tier EC2 Ubuntu instance using Docker and Docker Compose.
 
-* An AWS account
-* EC2 Ubuntu 20.04 instance (t2.micro)
-* Docker and Docker Compose installed on the EC2 instance
-* Port 80 opened in the EC2 security group (for HTTP access)
-
+An AWS account
+ EC2 Ubuntu 20.04 instance (t2.micro)
+Docker and Docker Compose installed on the EC2 instance
+Port 80 opened in the EC2 security group (for HTTP access)
 Steps to Deploy
+SSH into chmod 400 "intersoft-pem-key.pem"
 
-#SSH into chmod 400 "intersoft-pem-key.pem"
-
-ssh chmod 400 "intersoft-pem-key.pem"
-```
+ssh chmod 400 "intersoft-pem-key.pem
 
  Replace `your-key.pem` and IP with yo
 
-
 git clone https://github.com/your-username/assignment4-frontend.git
 cd assignment4-frontend
-```
-
 Build and Run the Docker Environme
 docker compose up -d --build
 
-
  Builds all Docker images (API, frontend, load balancer)
-  Starts containers: 3 frontends, 1 API, 1 MySQL (or your DB), and the load balancer
+ Starts containers: 3 frontends, 1 API, 1 MySQL (or your DB), and the load balancer
  Automatically connects containers via Docker networks
-
 Access the Front-End
-
-In your browser, go to:
+In your browser, go to
 http://ec2-44-220-153-100.compute-1.amazonaws.com  -44.220.153.100
-
-You should see:
-
  The homepage with Students and Courses buttons
  Dynamic display of data from `/students` and `/subjects` API
  The `X-Node-ID` showing which front-end instance served the request
-
 Verify Load Balancing (Round-Robin)
-
 Refresh the homepage multiple times
  Observe that `X-Node-ID` changes between `frontend1`, `frontend2`, `frontend3`
  Stop one front-end container (e.g., `docker stop frontend2`) and refresh again
