@@ -53,7 +53,7 @@ ssh chmod 400 "intersoft-pem-key.pem
 
  Replace `your-key.pem` and IP with yo
 
-git clone https://github.com/your-username/assignment4-frontend.git
+git clone https://github.com/MAYALATZ/assignment4-frontend.git
 cd assignment4-frontend
 Build and Run the Docker Environme
 docker compose up -d --build
